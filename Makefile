@@ -1,11 +1,8 @@
 
 NAME=libasm.a
 
-SRCS=	ft_strlen.s ft_write.s 
-# 		ft_strcpy.s \
-# 		ft_strcmp.s \
-# 		ft_read.s \
-# 		ft_strdup.s
+SRCS=	src/ft_strlen.s src/ft_write.s 
+
 
 OBJS=$(SRCS:.s=.o)
 NASM=nasm
