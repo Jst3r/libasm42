@@ -1,9 +1,9 @@
-global _ft_strdup
-extern _malloc
+global ft_strdup
+extern malloc
 
 section .text
 
-_ft_strdup:
+ft_strdup:
     test rdi, rdi
     jz .error
     ;mov rsi, rdi
@@ -21,7 +21,7 @@ _ft_strdup:
     inc rcx
     push rdi
     mov rdi, rcx
-    call _malloc
+    call malloc
     pop rsi
     test rax, rax
     jz .error
