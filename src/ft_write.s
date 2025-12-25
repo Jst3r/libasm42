@@ -1,16 +1,13 @@
 global ft_write
 
-;section .note.GNU-stack
 
 ft_write:
     xor rax, rax        ; rax to 0
     cmp rdi, 0          ;cmp rdi with 0 if first arg (fd) is less than 0 return an error
     jl .error
-
     ; call syscall write();
     mov rax, 1
     syscall
-
     cmp rax, 0
     jge .done                   ; if file descriptor is greater than or equal to 0 return the 
 
