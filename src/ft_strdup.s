@@ -1,14 +1,17 @@
 global _ft_strdup
 extern _malloc
+
+section .text
+
 _ft_strdup:
     test rdi, rdi
     jz .error
-    mov rsi, rdi
+    ;mov rsi, rdi
 
     xor rcx, rcx
 
 .count_len:
-    cmp byte [rdi, rcx], 0
+    cmp byte [rdi + rcx], 0
     jz .alloc
     inc rcx
     jmp .count_len
@@ -16,22 +19,23 @@ _ft_strdup:
 
 .alloc:
     inc rcx
+    push rdi
     mov rdi, rcx
     call _malloc
+    pop rsi
     test rax, rax
     jz .error
 
     mov rdi, rax    ; dest
-    xor rdx, rdx    ; index
 
 .copy:
-    mov al, [rsi + rdx] ; move src to tmp
-    mov [rdi, rdx], al  ; mov tmo to dup
-    inc rdx             ;inc rdx
-    test al, al
+    mov dl, [rsi] ; move src to tmp
+    mov [rdi], dl  ; mov tmo to dup
+    inc rdi
+    inc rsi            ;inc rdx
+    test dl, dl
     jne .copy
 
-    mov rax, rdi
     ret
 
 
