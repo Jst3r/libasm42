@@ -1,12 +1,13 @@
 
 NAME=libasm.a
 
-SRCS=	src/ft_strlen.s src/ft_write.s src/ft_strcpy.s src/ft_strcmp.s
+SRCS=	src/ft_strlen.s src/ft_write.s src/ft_strcpy.s src/ft_strcmp.s src/ft_strdup.s
 
 
 OBJS=$(SRCS:.s=.o)
 NASM=nasm
-NASMFLAGS=-f elf64
+NASMFLAGSLINUX=-f elf64
+NASMFLAGSMAC=-f macho64
 CC=gcc
 CFLAGS=-Wall -Wextra -Werror
 
@@ -16,7 +17,7 @@ $(NAME): $(OBJS)
 	ar rcs $(NAME) $(OBJS)
 	cc main.c -L. -lasm -no-pie -o rev
 %.o: %.s
-	$(NASM) $(NASMFLAGS) $< -o $@
+	$(NASM) $(NASMFLAGSMAC) $< -o $@
 clean:
 	rm -rf $(OBJS)
 fclean: clean
