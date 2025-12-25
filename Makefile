@@ -15,7 +15,7 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	ar rcs $(NAME) $(OBJS)
-	cc main.c -L. -lasm -no-pie -o rev
+	cc main.c -L. -lasm -no-pie -o tst
 %.o: %.s
 	$(NASM) $(NASMFLAGSMAC) $< -o $@
 clean:
