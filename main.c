@@ -3,6 +3,7 @@
 #include <string.h>
 int main()
 {
-    printf("%s\n", ft_strdup("N"));
+    char *str = ft_strdup("Hello, World!");
+    printf("%s\n", str);
     return 0;
 }

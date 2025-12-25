@@ -6,7 +6,6 @@ section .text
 ft_strdup:
     test rdi, rdi
     jz .error
-    ;mov rsi, rdi
 
     xor rcx, rcx
 
@@ -26,7 +25,7 @@ ft_strdup:
     test rax, rax
     jz .error
 
-    mov rdi, rax    ; dest
+    mov rdi, rax        ; dest
 
 .copy:
     mov dl, [rsi]
