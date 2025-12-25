@@ -10,5 +10,5 @@ ft_strlen:
     inc rax            ; increass rax;
     jmp .loop
 
-.done
+.done:
     ret

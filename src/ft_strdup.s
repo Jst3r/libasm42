@@ -29,8 +29,8 @@ _ft_strdup:
     mov rdi, rax    ; dest
 
 .copy:
-    mov dl, [rsi] ; move src to tmp
-    mov [rdi], dl  ; mov tmo to dup
+    mov dl, [rsi]
+    mov [rdi], dl
     inc rdi
     inc rsi            ;inc rdx
     test dl, dl
