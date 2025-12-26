@@ -1,15 +1,11 @@
 global ft_strcpy
-
 ft_strcpy:
-    xor rax, rdi
-
+    mov rax, rdi           
 .loop:
     mov dl, byte [rsi]
-    mov [rdi], dl
-    inc rdi
-    inc rsi
+    mov [rdi], dl     
+    inc rdi         
+    inc rsi         
     test dl, dl
-    jne .loop
-
+    jne .loop            
     ret
-    
