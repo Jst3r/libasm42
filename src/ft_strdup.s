@@ -25,13 +25,13 @@ ft_strdup:
     test rax, rax
     jz .error
 
-    mov rdi, rax        ; dest
+    mov rdi, rax
 
 .copy:
     mov dl, [rsi]
     mov [rdi], dl
     inc rdi
-    inc rsi            ;inc rdx
+    inc rsi       
     test dl, dl
     jne .copy
 
