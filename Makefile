@@ -11,8 +11,7 @@ SRCS=	src/ft_strlen.s\
 
 OBJS=$(SRCS:.s=.o)
 NASM=nasm
-NASMFLAGSLINUX=-f elf64
-NASMFLAGSMAC=-f macho64
+NASMFLAGS=-f elf64
 CC=gcc
 CFLAGS=-Wall -Wextra -Werror
 
@@ -22,7 +21,7 @@ $(NAME): $(OBJS)
 	ar rcs $(NAME) $(OBJS)
 	cc main.c -L. -lasm -no-pie -o tst
 %.o: %.s
-	$(NASM) $(NASMFLAGSLINUX) $< -o $@
+	$(NASM) $(NASMFLAGS) $< -o $@
 clean:
 	rm -rf $(OBJS)
 fclean: clean
