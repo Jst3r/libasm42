@@ -10,7 +10,7 @@ section .text
         ; rdx - number of bytes to read
 
 ft_read:
-        mov     rax, 0          ; syscall number for read
+        mov     rax, 0 
         syscall
         cmp rax, 0
         jl .error
